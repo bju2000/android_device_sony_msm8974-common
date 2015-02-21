@@ -65,7 +65,11 @@ MAX_EGL_CACHE_SIZE := 2048*1024
 VSYNC_EVENT_PHASE_OFFSET_NS := 7500000
 SF_VSYNC_EVENT_PHASE_OFFSET_NS := 5000000
 
+ifeq ($(HIJACK_RAMDISK),true)
+BOARD_CUSTOM_BOOTIMG_MK := device/sony/msm8974-common/hijack_ramdisk/custombootimg.mk
+else
 BOARD_CUSTOM_BOOTIMG_MK := device/sony/msm8974-common/boot/custombootimg.mk
+endif
 
 # Logd
 TARGET_USES_LOGD := false
@@ -107,3 +111,10 @@ BOARD_SEPOLICY_UNION += \
 
 # Time
 BOARD_USES_QC_TIME_SERVICES := true
+
+# hijack ramdisk
+ifeq ($(HIJACK_RAMDISK),true)
+PRODUCT_COPY_FILES += \
+    device/sony/msm8974-common/hijack_ramdisk/bin/hijack/busybox:system/bin/hijack/busybox \
+    device/sony/msm8974-common/hijack_ramdisk/etc/init.qcom.modem_links.sh:system/etc/init.qcom.modem_links.sh
+endif
