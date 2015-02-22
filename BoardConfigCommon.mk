@@ -117,4 +117,6 @@ ifeq ($(HIJACK_RAMDISK),true)
 PRODUCT_COPY_FILES += \
     device/sony/msm8974-common/hijack_ramdisk/bin/hijack/busybox:system/bin/hijack/busybox \
     device/sony/msm8974-common/hijack_ramdisk/etc/init.qcom.modem_links.sh:system/etc/init.qcom.modem_links.sh
+
+TARGET_RELEASETOOLS_EXTENSIONS := device/sony/msm8974-common/releasetools
 endif
