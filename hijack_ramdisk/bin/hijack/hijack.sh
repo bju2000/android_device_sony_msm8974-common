@@ -90,9 +90,10 @@ boot_rom () {
 	umount -l /dev/block/mmcblk0p14
 	umount -l /dev/block/platform/msm_sdcc.1/by-name/Cache
 	## /LTALabel
-	#umount -l /dev/block/mmcblk0p16
+	umount -l /dev/block/mmcblk0p18
 	## /sdcard (External)
-    ## umount -l /dev/block/platform/msm_sdcc.1/by-name/SDCard
+	umount -l /dev/block/mmcblk1p1
+    umount -l /dev/block/platform/msm_sdcc.1/by-name/SDCard
 
 	sync
 
