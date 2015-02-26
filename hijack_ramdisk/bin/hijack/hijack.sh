@@ -12,6 +12,7 @@ LED_GREEN="/sys/class/leds/pwr-green/brightness"
 boot_recovery (){
     mount -o remount,rw /
     cd /
+    /system/bin/disableric
     export TZ="$(getprop persist.sys.timezone)"
     /system/bin/time_daemon
     sleep 5
