@@ -222,9 +222,9 @@ if [ "$RECOVERYBOOT" = "true" ]; then
 	fi
 
 	# Prepare TWRP recovery - by button press
-	if [ -f "/system/bin/recovery.cwm.cpio.lzma" -a "$KEYCHECK" = "DOWN" ]; then
+	if [ -f "/system/bin/recovery.twrp.cpio.lzma" -a "$KEYCHECK" = "DOWN" ]; then
 		RECLOAD="twrp"
-		RECLOG="Booting recovery by keypress, booting to CWM..."
+		RECLOG="Booting recovery by keypress, booting to TWRP..."
 	fi
 
 	# Copy, unpack and prepare loading the recovery.

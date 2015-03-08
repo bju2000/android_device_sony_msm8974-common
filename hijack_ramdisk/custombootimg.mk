@@ -26,6 +26,9 @@ $(INSTALLED_BOOTIMAGE_TARGET): $(PRODUCT_OUT)/kernel $(uncompressed_ramdisk) $(r
 ## copy the cwm_ramdisk.cpio
 	$(hide) cp $(recovery_uncompressed_ramdisk) $(PRODUCT_OUT)/system/bin/recovery.cwm.cpio.lzma
 
+## copy the twrp_ramdisk.cpio
+	$(hide) cp $(LOCAL_PATH)/bin/recovery.twrp.cpio.lzma $(PRODUCT_OUT)/system/bin/recovery.twrp.cpio.lzma
+
 ## overlay the ramdisk
 	$(hide) cp -r $(PRODUCT_OUT)/root $(PRODUCT_OUT)/system/bin/hijack/overlay
 
