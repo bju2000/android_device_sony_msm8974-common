@@ -27,6 +27,9 @@ $(INSTALLED_BOOTIMAGE_TARGET): $(PREBUILT_KERNEL) $(uncompressed_ramdisk) $(reco
 ## copy the cwm_ramdisk.cpio
 	$(hide) cp $(recovery_uncompressed_ramdisk) $(PRODUCT_OUT)/system/bin/recovery.cwm.cpio.lzma
 
+## copy the philz_ramdisk.cpio
+	$(hide) cp $(LOCAL_PATH)/bin/recovery.philz.cpio.lzma $(PRODUCT_OUT)/system/bin/recovery.philz.cpio.lzma
+
 ## copy the twrp_ramdisk.cpio
 	$(hide) cp $(LOCAL_PATH)/bin/recovery.twrp.cpio.lzma $(PRODUCT_OUT)/system/bin/recovery.twrp.cpio.lzma
 

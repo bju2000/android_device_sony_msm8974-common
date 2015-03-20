@@ -221,6 +221,12 @@ if [ "$RECOVERYBOOT" = "true" ]; then
 		RECLOG="Booting to ${RECLOAD}..."
 	fi
 
+    # Prepare PhilZ recovery - by button press
+    if [ -f "/system/bin/recovery.philz.cpio.lzma" -a "$KEYCHECK" = "UP" ]; then
+        RECLOAD="philz"
+        RECLOG="Booting recovery by keypress, booting to PhilZ Touch..."
+    fi
+
 	# Prepare TWRP recovery - by button press
 	if [ -f "/system/bin/recovery.twrp.cpio.lzma" -a "$KEYCHECK" = "DOWN" ]; then
 		RECLOAD="twrp"
