@@ -22,11 +22,7 @@ BOARD_EGL_CFG := device/sony/msm8974-common/rootdir/system/lib/egl/egl.cfg
 include device/sony/qcom-common/BoardConfigCommon.mk
 
 # Kernel properties
-ifeq ($(HIJACK_RAMDISK),true)
-TARGET_PREBUILT_KERNEL := device/sony/$(TARGET_DEVICE)/kernel.sin
-else
 TARGET_KERNEL_SOURCE := kernel/sony/msm8974
-endif
 
 # use CAF variants
 BOARD_USES_QCOM_HARDWARE := true
