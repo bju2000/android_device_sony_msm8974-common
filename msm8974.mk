@@ -12,9 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# inherit from qcom-common
-$(call inherit-product, device/sony/qcom-common/qcom-common.mk)
-
 COMMON_PATH := device/sony/msm8974-common
 
 # Audio
@@ -39,6 +36,7 @@ PRODUCT_COPY_FILES += \
 
 # Camera
 PRODUCT_PACKAGES += \
+    camera.qcom \
     CameraWorkaround
 
 PRODUCT_PACKAGES += \
@@ -52,7 +50,13 @@ PRODUCT_PACKAGES += \
     hwcomposer.msm8974 \
     gralloc.msm8974 \
     copybit.msm8974 \
-    memtrack.msm8974
+    memtrack.msm8974 \
+    libgenlock \
+    libmemalloc \
+    liboverlay \
+    libqdutils \
+    libtilerenderer \
+    libI420colorconvert
 
 # Ion
 PRODUCT_PACKAGES += \
@@ -77,6 +81,21 @@ PRODUCT_PACKAGES += \
 PRODUCT_BOOT_JARS += \
     qcmediaplayer
 
+# Omx
+PRODUCT_PACKAGES += \
+    libOmxAacEnc \
+    libOmxAmrEnc \
+    libOmxCore \
+    libOmxEvrcEnc \
+    libOmxQcelp13Enc \
+    libOmxVdec \
+    libOmxVenc \
+    libc2dcolorconvert \
+    libdashplayer \
+    libdivxdrmdecrypt \
+    libmm-omxcore \
+    libstagefrighthw
+
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += $(COMMON_PATH)/overlay
 ifneq ($(BOARD_HAVE_RADIO),false)
@@ -84,6 +103,49 @@ ifneq ($(BOARD_HAVE_RADIO),false)
     $(call inherit-product, $(COMMON_PATH)/radio.mk)
 endif
 
+# Power
+PRODUCT_PACKAGES += \
+    power.qcom
+
+# QCOM
+PRODUCT_PROPERTY_OVERRIDES += \
+    com.qc.hardware=true
+
+# QC Perf
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.extension_library=/vendor/lib/libqc-opt.so
+
+# Recovery
+PRODUCT_PACKAGES += \
+    keycheck
+
+# RIL
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.telephony.ril_class=SonyRIL
+
 # Thermal management
 PRODUCT_PACKAGES += \
     thermanager
+
+# Wifi
+PRODUCT_PROPERTY_OVERRIDES += \
+    wifi.interface=wlan0 \
+    wifi.supplicant_scan_interval=15
+
+PRODUCT_PACKAGES += \
+    libwpa_client \
+    hostapd \
+    dhcpcd.conf \
+    wpa_supplicant \
+    wpa_supplicant.conf
+
+# QCOM Display
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.hwc.mdpcomp.enable=true
+
+# OpenGL ES 3.0
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.opengles.version=196608
+
+# Include non-opensource parts
+$(call inherit-product, vendor/sony/msm8974-common/msm8974-common-vendor.mk)
