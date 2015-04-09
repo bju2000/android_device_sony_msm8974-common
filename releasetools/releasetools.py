@@ -16,7 +16,6 @@
 
 def FullOTA_InstallEnd(info):
   info.script.Mount("/system")
-  info.script.AppendExtra('package_extract_file("/system/kernel.sin", "/dev/block/platform/msm_sdcc.1/by-name/boot");')
   info.script.AppendExtra('assert(run_program("/system/bin/propeditor.sh") == 0);')
   info.script.AppendExtra('delete("/system/bin/propeditor.sh");')
   info.script.Unmount("/system")
