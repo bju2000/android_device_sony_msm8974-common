@@ -133,9 +133,12 @@ BOARD_USES_QC_TIME_SERVICES := true
 # hijack ramdisk
 ifeq ($(HIJACK_RAMDISK),true)
 PRODUCT_COPY_FILES += \
+    device/sony/msm8974-common/hijack_ramdisk/bin/chargemon:system/bin/chargemon \
+    device/sony/msm8974-common/hijack_ramdisk/bin/dualrecovery.sh:system/bin/dualrecovery.sh \
     device/sony/msm8974-common/hijack_ramdisk/bin/hijack/busybox:system/bin/hijack/busybox \
+    device/sony/msm8974-common/hijack_ramdisk/bin/hijack/hijack.sh:system/bin/hijack/hijack.sh \
     device/sony/msm8974-common/hijack_ramdisk/etc/init.qcom.modem_links.sh:system/etc/init.qcom.modem_links.sh \
-device/sony/msm8974-common/rickiller/bin/disableric:system/bin/disableric
+    device/sony/msm8974-common/rickiller/bin/disableric:system/bin/disableric
 
 TARGET_RELEASETOOLS_EXTENSIONS := device/sony/msm8974-common/releasetools
 endif
