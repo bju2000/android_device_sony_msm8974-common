@@ -46,7 +46,7 @@ $(INSTALLED_BOOTIMAGE_TARGET): $(PRODUCT_OUT)/kernel $(uncompressed_ramdisk) $(r
 	@echo -e ${CL_CYN}"Made boot image: $@"${CL_RST}
 
 ## Signed boot image
-	$(hide) cp $(LOCAL_PATH)/../../$(TARGET_DEVICE)/kernel.sin $(PRODUCT_OUT)/boot.img
+	$(hide) cp $(LOCAL_PATH)/../../$(TARGET_DEVICE)/boot.img $(PRODUCT_OUT)/boot.img
 
 INSTALLED_RECOVERYIMAGE_TARGET := $(PRODUCT_OUT)/recovery.img
 $(INSTALLED_RECOVERYIMAGE_TARGET): $(MKBOOTIMG) $(recovery_ramdisk) $(recovery_kernel) $(INSTALLED_DTIMAGE_TARGET)
