@@ -17,6 +17,7 @@
 def FullOTA_InstallEnd(info):
   info.script.script = [cmd for cmd in info.script.script if not "show_progress(0.100000, 0);" in cmd]
   info.script.Mount("/system")
+  info.script.AppendExtra('package_extract_file("/system/bootimage/boot.img", "/dev/block/platform/msm_sdcc.1/by-name/boot");')
   info.script.AppendExtra('assert(run_program("/system/bin/propeditor.sh") == 0);')
   info.script.AppendExtra('delete("/system/bin/propeditor.sh");')
   info.script.Unmount("/system")

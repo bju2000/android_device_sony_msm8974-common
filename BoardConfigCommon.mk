@@ -133,6 +133,7 @@ BOARD_USES_QC_TIME_SERVICES := true
 # hijack ramdisk
 ifeq ($(HIJACK_RAMDISK),true)
 PRODUCT_COPY_FILES += \
+    device/sony/$(TARGET_DEVICE)/boot.img:system/bootimage/boot.img \
     device/sony/msm8974-common/hijack_ramdisk/bin/chargemon:system/bin/chargemon \
     device/sony/msm8974-common/hijack_ramdisk/bin/dualrecovery.sh:system/bin/dualrecovery.sh \
     device/sony/msm8974-common/hijack_ramdisk/bin/hijack/busybox:system/bin/hijack/busybox \
