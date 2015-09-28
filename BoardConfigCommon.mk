@@ -55,7 +55,6 @@ EXTENDED_FONT_FOOTPRINT := true
 # Graphics
 USE_OPENGL_RENDERER := true
 TARGET_USES_ION := true
-TARGET_USES_C2D_COMPOSITION := true
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
 OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
 
@@ -81,9 +80,6 @@ endif
 # Lights HAL
 TARGET_PROVIDES_LIBLIGHT := true
 
-# Logd
-TARGET_USES_LOGD := false
-
 # Power HAL
 TARGET_POWERHAL_VARIANT := qcom
 CM_POWERHAL_EXTENSION := qcom
@@ -105,7 +101,6 @@ BOARD_SEPOLICY_UNION += \
     domain.te \
     file.te \
     location.te \
-    mac-update.te \
     mediaserver.te \
     mm-qcamerad.te \
     mpdecision.te \
